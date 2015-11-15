@@ -1406,13 +1406,13 @@ static int rt5639_spk_event(struct snd_soc_dapm_widget *w,
 			RT5639_PWR_CLS_D, RT5639_PWR_CLS_D);
 		rt5639_index_update_bits(codec,
 			RT5639_CLSD_INT_REG1, 0xf000, 0xf000);
-		snd_soc_update_bits(codec, RT5639_SPK_VOL,
-			RT5639_L_MUTE | RT5639_R_MUTE, 0);
+		snd_soc_update_bits(codec, RT5639_EQ_CTRL2,
+			RT5639_EQ_HPF2_MASK, RT5639_EQ_HPF2_EN);
 		snd_soc_update_bits(codec, RT5639_EQ_CTRL1,
 			RT5639_EQ_UPD | RT5639_EQ_CD_MASK, 
 			RT5639_EQ_UPD |	RT5639_EQ_CD_EN);			
-		snd_soc_update_bits(codec, RT5639_EQ_CTRL2,
-			RT5639_EQ_HPF2_MASK, RT5639_EQ_HPF2_EN);
+		snd_soc_update_bits(codec, RT5639_SPK_VOL,
+			RT5639_L_MUTE | RT5639_R_MUTE, 0);
 		break;
 
 	case SND_SOC_DAPM_PRE_PMD:

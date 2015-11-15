@@ -20,7 +20,7 @@
 #include <linux/seq_file.h>
 #include <../gpio-names.h>
 
-#define KAREN_KERNEL_VERSION "K01.32.20131106"
+#define KAREN_KERNEL_VERSION "K01.33.20131113"
 #define MANUFACTURER  "Wistron"
 const char *pcb_ver_name[4]={"SA","SB","SC","-1"};
 

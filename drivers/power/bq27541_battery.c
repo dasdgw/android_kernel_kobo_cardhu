@@ -322,17 +322,23 @@ static int modify_taper_current(struct bq27x00_device_info *di)
 		ret = bq27x00_write(di, 0x3F, 0x00, false);
 		val = bq27x00_read(di, 0x40, false);
 		dev_info(di->dev, "new taper current = %d \n",val>>8);			
+		ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x21, false);		
+		ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x41, false);		
 	}
 	else
-		dev_info(di->dev, "taper current = 80 \n");	
+	{
+		dev_info(di->dev, "taper current = %d \n",OLD_TAPER_CURRENT_BYTES);	
+		ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x21, false);
+		ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x20, false);
+	}	
 
-	ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x21, false);
+//	ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x21, false);
 //	msleep(100);
 //	val = bq27x00_ctrl_read(di, BQ27510_CNTL, BQ27510_CNTL_STATUS);
 
 //	dev_info(di->dev, "BQ27510_CNTL_STATUS = 0x%x \n",val);
 
-	ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x41, false);
+//	ret = bq27x00_ctrl_write(di, BQ27510_CNTL, BQ27510_CNTL_STATUS, 0x41, false);
 //	msleep(10000);
 //	val = bq27x00_ctrl_read(di, BQ27510_CNTL, BQ27510_CNTL_STATUS);
 

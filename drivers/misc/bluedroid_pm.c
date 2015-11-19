@@ -34,7 +34,7 @@
 #include <linux/clk.h>
 #include <linux/interrupt.h>
 
-#include <../../arch/arm/mach-tegra/board-cardhu.h>
+#include <../../../arch/arm/mach-tegra/board-cardhu.h>
 
 #define PROC_DIR	"bluetooth/sleep"
 struct bluedroid_pm_data {

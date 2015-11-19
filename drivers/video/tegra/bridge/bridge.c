@@ -4,7 +4,7 @@
  */
 #include <linux/delay.h>
 #include <linux/gpio.h>
-#include <bridge.h>
+#include "bridge.h"
 #include <../../../../arch/arm/mach-tegra/gpio-names.h>
 
 #define SPI_WRITE(value) spi_write9(value);
